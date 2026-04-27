@@ -12,9 +12,15 @@ df_unique_x = pd.DataFrame({
     'x': x_unique_values
 })
 
-fig_unique_x = px.line(df_unique_x, x="x", y="y", title="Unsorted Input (df_unique_x)")
+fig_unique_x = px.line(df_unique_x,
+                       x="x",
+                       y="y",
+                       title="Unsorted Input (df_unique_x)")
 fig_unique_x.show()
 
 df_unique_x_sorted = df_unique_x.sort_values(by="x")
-fig_unique_x_sorted = px.line(df_unique_x_sorted, x="x", y="y", title="Sorted Input (df_unique_x)")
+fig_unique_x_sorted = px.line(df_unique_x_sorted,
+                              x="x",
+                              y="y",
+                              title="Sorted Input (df_unique_x)")
 fig_unique_x_sorted.show()
