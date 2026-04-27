@@ -1,6 +1,6 @@
 import random
 import pandas as pd
-import ScatterPlotPlotly.express as px
+import plotly.express as px
 
 random.seed(42)
 # Generate 40 unique random numbers for 'x' between 1 and 40
