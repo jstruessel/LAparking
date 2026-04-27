@@ -1,0 +1,67 @@
+### Common `plotly.express` Parameters for Various Plot Types
+
+`plotly.express` is a high-level API that simplifies creating a wide range of interactive plots. While `x`, `y`, and `color` are fundamental, many other parameters allow for rich and complex visualizations.
+
+Here's a breakdown of commonly used parameters:
+
+**1. Basic Aesthetic Mappings:**
+
+*   `x`: Column to be used for the x-axis.
+*   `y`: Column to be used for the y-axis.
+*   `color`: Column to map data points to different colors. Useful for distinguishing categories or representing a third variable.
+*   `size`: Column to map data points to different sizes (e.g., in scatter plots or bubble charts). Represents a quantitative variable.
+*   `symbol`: Column to map data points to different symbols (e.g., in scatter plots). Useful for distinguishing categories without relying solely on color.
+*   `text`: Column to display text labels on or next to data points.
+
+**2. Faceting for Small Multiples:**
+
+*   `facet_row`: Column to create separate subplots (rows) for each unique value. Ideal for comparing distributions across different categories.
+*   `facet_col`: Column to create separate subplots (columns) for each unique value.
+*   `facet_col_wrap`: Number of columns to wrap facets after.
+
+**3. Hover Information:**
+
+*   `hover_name`: Column whose values will appear in bold on the hover tooltip.
+*   `hover_data`: A list of column names whose values will be displayed in the hover tooltip. Can include columns not otherwise mapped to aesthetics.
+
+**4. Animation (for Time-Series or Sequential Data):**
+
+*   `animation_frame`: Column whose values will be used to create animation frames. Each unique value in this column will generate a new frame.
+*   `animation_group`: Column to group data points that should be animated together (e.g., maintaining the identity of a line across frames).
+
+**5. Plot Customization & Configuration:**
+
+*   `title`: The title of the plot.
+*   `labels`: A dictionary to rename axis labels or legend titles (e.g., `labels={'col_name': 'New Axis Title'}`).
+*   `log_x`, `log_y`: Set to `True` to use a logarithmic scale for the x or y axis.
+*   `range_x`, `range_y`: List specifying the min and max values for the x or y axis (e.g., `range_x=[0, 100]`).
+*   `template`: Plotly theme template (e.g., 'plotly', 'ggplot2', 'seaborn', 'simple_white', 'plotly_dark').
+*   `color_discrete_map`: A dictionary to assign specific colors to categories in the `color` column.
+*   `color_continuous_scale`: A list of colors or a named divergent/sequential color scale for continuous `color` variables.
+*   `color_continuous_midpoint`: A numerical value for the midpoint of a continuous color scale.
+
+**6. Specific Plot Type Parameters (Examples):**
+
+*   **For `px.scatter`, `px.line`:**
+    *   `trendline`: Add a trendline ('ols' for Ordinary Least Squares or 'lowess' for Locally Weighted Scatterplot Smoothing).
+    *   `marginal_x`, `marginal_y`: Add marginal distributions (e.g., 'histogram', 'rug', 'box', 'violin').
+
+*   **For `px.bar`:**
+    *   `barmode`: How bars are drawn ('group', 'overlay', 'relative').
+    *   `base`: For waterfall charts, where the bars start from.
+
+*   **For `px.histogram`:**
+    *   `nbins`: Number of bins for the histogram.
+    *   `histnorm`: Normalization method ('percent', 'probability', 'density', 'probability density').
+
+*   **For `px.density_heatmap`, `px.density_contour`:**
+    *   `z`: For heatmaps, the value to aggregate over x and y.
+
+*   **For Geographic Plots (`px.scatter_geo`, `px.line_geo`, `px.choropleth`):**
+    *   `lat`, `lon`: Latitude and longitude columns.
+    *   `locations`: Column containing location identifiers (e.g., ISO alpha-3 country codes).
+    *   `locationmode`: Specifies how locations are identified.
+    *   `scope`: Geographic scope (e.g., 'world', 'usa', 'europe').
+    *   `projection`: Map projection type (e.g., 'equirectangular', 'mercator').
+
+This list covers many of the powerful features available in `plotly.express`. Each function (`px.scatter`, `px.line`, `px.bar`, `px.histogram`, `px.box`, `px.violin`, `px.density_heatmap`, `px.choropleth`, etc.) will utilize a subset of these parameters relevant to its plot type.
